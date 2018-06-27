@@ -1,0 +1,9 @@
+.o-cols {
+    @extend %flex;
+    @extend %flex-y;
+
+    &__item {
+        width: 50%;
+    }
+    
+}

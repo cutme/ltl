@@ -1,0 +1,17 @@
+.c-lang {
+    &__current {
+        @extend %rel;
+    
+        &:after {
+            @extend %abs;
+            @extend %abs-y;
+            @extend %abs-after;
+            @extend %icomoon;
+            left: 80px; 
+            font-size: rem(5);
+            content: "\e900";
+            color: $c-blue;
+        }
+    }
+    
+}

@@ -1,0 +1,112 @@
+.c-levels {
+    margin-bottom: 250px;
+    
+    @media screen and ( max-width: $tablet + px ) {
+        margin-bottom: get-vw-tablet(250);
+    }
+    
+    figure {
+        @extend %flex;
+    }
+    
+    img {
+        align-self: center;
+    }
+    
+    .c-lead {
+        @media screen and ( max-width: $laptop + px ) {
+            margin-bottom: get-vw-laptop(150);
+        }
+        
+        @media screen and ( max-width: $tablet + px ) {
+            margin-bottom: get-vw-tablet(200);
+        }
+    }
+
+    .o-list {
+        &__item { 
+        
+            .o-cols {
+                @media screen and ( max-width: $tablet_portrait + px ) {
+                    padding: {
+                        left: grid(128, $tablet);
+                        right: grid(128, $tablet);
+                    }
+                }
+                
+                @media screen and ( max-width: $smartphone + px ) {
+                    padding: {
+                        left: 30px;
+                        right: 30px;
+                    }
+                }
+            }
+
+            &:nth-child(odd) {
+                figure {
+                    justify-content: flex-end;
+                    
+                    @media screen and ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+                        padding-left: grid(160);
+                    }
+                }
+                
+                .o-cols__item {
+                    &:last-of-type {
+                        padding-right: 360px;
+                        
+                        @media screen and ( max-width: $base + px ) {
+                            padding-right: grid(360);
+                        }
+                        
+                        @media screen and ( max-width: $laptop + px ) {
+                            padding-right: grid(171, $laptop);
+                        }
+                        
+                        @media screen and ( max-width: $tablet + px ) {
+                            padding-right: grid(128, $tablet);
+                        }
+                        
+                        @media screen and ( max-width: $smartphone + px ) {
+                            padding-right: 30px;
+                        }
+                    }
+                }                
+            } 
+            
+            &:nth-child(even) {
+                figure {
+                    
+                    @media screen and ( max-width: $base + px ) {
+                        padding-right: grid(160);
+                    }
+                }
+            
+                .o-cols__item {
+                    &:last-of-type {
+                        padding-left: 360px;
+                        
+                        @media screen and ( max-width: $base + px ) {
+                            padding-left: grid(360);
+                        }
+                        
+                        @media screen and ( max-width: $laptop + px ) {
+                            padding-left: grid(171, $laptop);
+                        }
+                        
+                        @media screen and ( max-width: $tablet + px ) {
+                            padding-left: grid(128, $tablet);
+                        }
+                        
+                        @media screen and ( max-width: $smartphone + px ) {
+                            padding-left: 30px;
+                        }
+                    }
+                }   
+            
+            
+            }       
+        }
+    }    
+}
+

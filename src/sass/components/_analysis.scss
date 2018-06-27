@@ -1,0 +1,9 @@
+.c-analysis {
+    @extend %analysis;
+    margin-bottom: 190px;
+    
+    @media screen and ( max-width: $tablet_portrait + px ) {
+        margin-bottom: get-vw-tablet-portrait(190);
+    }
+}
+

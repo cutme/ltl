@@ -1,0 +1,249 @@
+.c-footer {
+    @extend %rel;
+    z-index: 5;
+    margin: 0 auto;
+    font: {
+        family: $nunito;
+        size: rem(18);
+    }
+    
+    &:before, &:after {
+        @extend %abs;
+        @extend %abs-after;
+        top: 0;
+        width: grid(40, $laptop);
+        height: 100%;
+        background-color: white;
+        display: none;
+        
+        @media screen and ( min-width: $tablet + 1px ) and ( max-width: $laptop + px ) {
+            display: block;
+        }
+    }
+    
+    &:before {
+        left: 0;
+    }
+    
+    &:after {
+        right: 0;
+    }    
+    
+    @media screen and ( min-width: $base + 1px ) {
+        width: 1600px;
+    }
+    
+    @media screen and ( max-width: $base + px ) {
+        width: grid(1600);
+    }
+    
+    @media screen and ( max-width: $laptop + px ) {
+        width: 100%;
+    }
+
+    
+    dl {
+        @extend %rel;
+        @extend %flex;
+        @extend %flex-y;
+        align-items: flex-start;
+        width: 50%;
+        
+        @media screen and ( max-width: $base + px ) {
+            width: grid(300, 600);
+        }        
+        
+        @media screen and ( max-width: $smartphone2 + px ) {
+            flex-wrap: wrap;
+        }
+    }
+    
+    dd {
+        flex: 1;
+    }
+    
+    dt {
+        
+        @media screen and ( min-width: $smartphone2 + 1px ) {
+            flex-shrink: 0;
+            width: 50%;
+            text-align: right;
+            padding-right: 24px;
+        }
+        
+        @media screen and ( max-width: $tablet + px ) {
+            width: 25%;
+        }
+        
+        
+    }
+    
+    &__col {
+        @extend %flex;
+        @extend %flex-wrap;
+        width: 50%;
+
+        @media screen and ( max-width: $smartphone2 + px ) {
+            width: grid(480, $smartphone2);
+            margin: 0 auto;
+        }
+    }
+    
+    &__design {
+        font-size: rem(16);
+        
+        @media screen and ( min-width: $smartphone2 + 1px ) {
+            margin: 0 0 0 auto;
+            width: 200px;
+        }
+        
+        @media screen and ( max-width: $smartphone2 + px ) {
+            width: 100%;
+            text-align: center;
+        }
+        
+        a {
+            color: $c-blue;
+        }
+    }
+    
+    &__row {
+        @extend %flex;
+        
+        @media screen and ( max-width: $tablet + px ) {
+            flex-wrap: wrap;
+        }        
+  
+        &--bluebar {
+            background-color: $c-blue;
+            padding: 100px 0;
+            color: white;
+            
+            @media screen and ( max-width: $tablet + px ) {
+                padding: 70px 0;
+            }
+            
+            dl {
+                @media screen and ( max-width: $tablet + px ) {
+                    width: 100%;
+                    
+                    &:first-of-type {
+                        margin-bottom: 50px;
+                    }
+                }
+                
+                @media screen and ( max-width: $smartphone2 + px ) {
+                    &:last-of-type {
+                        margin-bottom: 60px;
+                    }
+                }
+            }
+            
+            dd,
+            dt {
+                @media screen and ( max-width: $smartphone2 + px ) {
+                    width: 100%;
+                }
+            }
+        }
+        
+        &--summary {
+            padding: 40px 0;
+            
+            .c-footer__col {
+                @extend %flex-y;
+                
+                @media screen and ( max-width: $smartphone2 + px ) {
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                &:first-of-type {
+                    @media screen and ( max-width: $smartphone2 + px ) {
+                        flex-direction: column-reverse;
+                    }
+                }
+            }
+            
+            dl {
+                @media screen and ( max-width: $smartphone2 + px ) {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+            
+            dd {
+                @media screen and ( max-width: $smartphone2 + px ) {
+                    flex: 0;
+                }
+            }
+            
+            .copyrights {
+                @media screen and ( max-width: $smartphone2 + px ) {
+                    margin-bottom: 20px;
+                
+                    dt {    
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    &__nav {
+
+        ul {
+            @extend %flex;
+            @extend %flex-wrap;
+            @extend %rel;
+        }
+        
+        li {
+            line-height: 1.9;
+            width: 50%;
+
+            @media screen and ( min-width: $smartphone2 + 1px ) {
+                padding-left: 25%;
+            }
+            
+            @media screen and ( max-width: $smartphone2 + px ) {
+                width: 100%;
+                margin-bottom: 12px;
+            }
+        }
+        
+        a {
+            @extend %rel;
+            white-space: nowrap;
+        }
+    }
+    
+    
+    
+    p {
+        white-space: nowrap;
+        line-height: 1.9;
+    }
+    
+   .icon-lokalizacja {
+        font-size: rem(55);
+    }
+   
+   .icon-jezyk {
+        font-size: rem(28);
+        
+        @media screen and ( max-width: $smartphone2 + px ) {
+            width: 70px;
+            margin-left: -35px;
+        }
+    }
+    
+    .icon-lokalizacja,
+    .icon-jezyk {
+    
+        @media screen and ( max-width: $smartphone2 + px ) {
+            margin-bottom: 20px;
+        }
+    }
+}
+

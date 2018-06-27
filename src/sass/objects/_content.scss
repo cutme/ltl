@@ -1,0 +1,30 @@
+.o-content {
+    @include z-index(content);
+    padding-bottom: 150px;
+    padding-top: 90px;
+    
+    .is-home & {
+        margin-top: -70px;
+        padding-top: 10px;
+    }
+    
+    @media screen and ( max-width: $base + px ) {
+    
+        padding-top: get-vw-base(90);
+        
+        .is-home & {
+            padding-top: 10px;
+        }
+    }
+    
+    @media screen and ( max-width: $laptop + px ) {
+    
+        .is-home & {
+            margin-top: 45px;
+        }
+    }
+    
+    @media screen and ( max-width: $smartphone + px ) {
+        padding-bottom: 110px;
+    }
+}

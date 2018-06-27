@@ -1,0 +1,28 @@
+.c-quickcontact {
+    
+    &--200 {
+        @media screen and ( min-width: $tablet_portrait + 1px ) {
+            padding-left: grid(200, 1200);
+        }
+    }
+    
+
+    &--600 {
+        @media screen and ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+            padding-left: grid(600, 1200);
+        }
+    }
+
+
+    .o-btn {
+        padding: {
+            left: 60px;
+            right: 60px;
+        }
+    }
+    
+    .o-header__fourth {
+        margin-bottom: 1.4em;
+        letter-spacing: 1px;
+    }
+}

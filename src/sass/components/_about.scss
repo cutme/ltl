@@ -1,0 +1,35 @@
+.c-about {
+
+    .c-text {
+        margin-bottom: 120px;
+        
+        font-family: $poppins;
+        
+        @media screen and ( min-width: $laptop + 1px ) {
+            padding: 0 grid(200, 1200);
+        }
+        
+        
+        .o-header__third {
+            font-weight: $medium;
+        }
+
+        p {
+            letter-spacing: 1px;
+            font: {
+                size: rem(18);
+                weight: $light;
+            }
+        }
+    
+        .o-header {
+            margin-bottom: 1.5em;
+        }
+    }
+    
+    .c-quickcontact {
+         @media screen and ( min-width: $laptop + 1px ) {
+            padding: 0 grid(200, 1200);
+         } 
+    }
+}

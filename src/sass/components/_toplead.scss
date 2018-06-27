@@ -1,0 +1,68 @@
+.c-toplead {
+    @extend %abs;
+    bottom: 230px;
+    left: 160px;
+    
+    .is-home & {
+
+        @media screen and ( min-width: $base + 1px ) {
+            bottom: 430px;
+        }
+
+        @media screen and ( min-width: $laptop + 1px )  and ( max-width: $base + px ) {
+            bottom: get-vw-base(430);
+        }
+    }
+
+
+    @media screen and ( max-width: $laptop + px ) {
+        bottom: get-vw-laptop(230);
+        left: grid(171, $laptop);
+    }
+
+    
+    @media screen and ( max-width: $tablet + px ) {
+        bottom: get-vw-tablet(170);
+    }
+
+
+    @media screen and ( max-width: $tablet_portrait + px ) {
+        bottom: 350px;
+//        transform: translateY(50%);
+    }
+    
+    @media screen and ( max-width: $smartphone + px ) {
+        left: 30px;
+        width: calc(100% - 60px);
+    }
+
+    &__slogan {
+        margin-bottom: 60px;
+        line-height: 1.2;
+        font: {
+            size: rem(50);
+            weight: $semibold;
+        }
+        color: white;
+        
+        @media screen and ( max-width: $base + px ) {
+            font-size: get-vw-base(50);
+        }
+        
+        @media screen and ( max-width: $laptop + px ) {
+            font-size: get-vw-laptop(37);
+        }
+        
+        @media screen and ( max-width: $tablet + px ) {
+            font-size: get-vw-tablet(32);
+        }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            font-size: 30px;
+        }
+    }
+    
+    .o-btn {
+        box-shadow: rgba($c-blue2,.5) 15px 15px 30px; 
+    }
+}

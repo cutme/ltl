@@ -1,0 +1,47 @@
+.c-topbar {
+    @include z-index(topbar);
+    @extend %flex;
+    @extend %flex-y;
+    @extend %flex-space-between;
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%;
+    height: 140px;
+    padding: 0 50px;
+    overflow: hidden;
+
+    &:after {
+        @extend %abs;
+        @extend %abs-after;
+        @extend %anim;
+        left: 0; top: 0;
+        z-index: -1;
+        width: 100%; height: 100%;
+        background-color: white;
+        transform: translate3d(0, -100%, 0);
+    }
+    
+    &.is-filled {
+        border-bottom: 1px solid rgba($c-black, .05);
+        &:after {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    
+    @media screen and ( max-width: $base + px ) {
+        padding: 0 grid(50);
+    }
+    
+    @media screen and ( max-width: $laptop + px ) {
+        height: get-vw-laptop(140);
+    }
+    
+    @media screen and ( max-width: $tablet + px ) {
+       height: 100px;
+        
+    }
+    
+    @media screen and ( max-width: $tablet_portrait + px ) {
+       padding: 0 30px;
+    }
+}

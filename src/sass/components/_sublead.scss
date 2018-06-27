@@ -1,0 +1,35 @@
+.c-sublead {
+    margin-bottom: 180px;
+    padding-left: grid(200, 1200);
+    
+    @media screen and ( max-width: $base + px ) {
+        margin-bottom: get-vw-base(180);
+    }
+    
+    @media screen and ( max-width: $tablet + px ) {
+        margin-bottom: get-vw-tablet(180);
+        padding-left: 0;    
+    }
+    
+    br {
+        @media screen and ( max-width: $tablet + px ) {
+            display: none;
+        }
+    }
+    
+    .o-header__third {
+        margin-bottom: .9em;
+        letter-spacing: 1px;
+        line-height: 1.4em;
+        font-weight: $light;
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            font-size: rem(32);
+        }
+    }
+    
+    .o-header__fifth {
+        letter-spacing: 1px;
+        color: $c-blue;
+    }
+}

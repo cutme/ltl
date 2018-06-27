@@ -1,0 +1,37 @@
+.c-hubs {
+    margin-bottom: 300px;
+    
+    @media screen and ( max-width: $tablet + px ) {
+        margin-bottom: get-vw-tablet(300);
+    }
+    
+    .c-lead {
+        @media screen and ( max-width: $laptop + px ) {
+            margin-bottom: get-vw-laptop(150);
+        }
+        
+        @media screen and ( max-width: $tablet + px ) {
+            margin-bottom: get-vw-tablet(200);
+        }
+    }
+
+    .o-list {
+        .o-header__third {
+            margin-bottom: .5em;
+            font-weight: $semibold;
+        }
+        
+        .o-header__fourth {
+            margin-bottom: 1em;
+            font-family: $nunito;
+            color: $c-blue;
+            
+                
+            @media screen and ( max-width: $smartphone + px ) {
+                font-size: rem(20);
+            }
+        }
+    }
+}
+
+

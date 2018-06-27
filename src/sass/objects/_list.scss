@@ -1,0 +1,39 @@
+.o-list {
+    &__item {
+
+        &:not(:last-of-type) {
+            margin-bottom: 150px;
+        }
+
+        &:nth-child(even) {
+            
+            .o-cols {                
+                text-align: right;  
+                
+                @media screen and ( min-width: $tablet_portrait + 1px ) {
+                    flex-direction: row-reverse;              
+                }
+            }
+        }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+        
+            .o-cols {
+                width: 100%;
+                flex-wrap: wrap;
+                flex-direction: column-reverse;
+
+                &__item {
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+    
+    .c-text {
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            margin-bottom: 40px;
+        }
+    }
+}

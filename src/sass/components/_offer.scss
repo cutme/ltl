@@ -1,0 +1,17 @@
+.c-offer {
+
+    .c-quickcontact {
+        padding-left: grid(1200, 1600);
+        
+        @media screen and ( max-width: $laptop + px ) {
+            padding-left: grid(400, 1200);
+        }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            padding-left: 0;
+        }
+        
+    }
+
+  
+}

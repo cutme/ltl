@@ -1,0 +1,108 @@
+[class^="icon-"], [class*=" icon-"] {
+	@extend %icomoon;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+
+
+.u-link {
+    cursor: pointer;
+
+    a {
+        @extend %rel;
+    
+        &:after, &:before {
+            @extend %abs;
+            @extend %abs-after;
+            left: 0;
+            width: 100%;
+            transform: scale3d(0, 1, 1);
+        }
+    
+        &:before {
+            bottom: -2px;
+            height: 1px;
+            transform-origin: right center;
+            transition: transform;
+            transition-duration: .5s;
+            transition-delay: 0;
+            transition-timing-function: cubic-bezier(.77,0, .175, 1);
+        }
+
+        &:after {
+            top: 0;
+        	height: 100%;
+        }
+
+        &:hover {
+            &:before {                
+                transform: scale3d(1, 1, 1);
+                transform-origin: left center;
+                transition-delay: 0;
+            }
+        }
+    }
+    
+    &--before {
+
+        a {    
+            &:after, &:before {
+                width: 48px;
+                
+                @media screen and ( min-width: $smartphone2 + 1px ) {
+                    top: 50%;
+                    left: -68px;
+                    transform: translateY(-50%) scale3d(0, 1, 1);
+                }                
+            }
+        
+            &:before {            
+                height: 2px;
+                
+                @media screen and ( max-width: $smartphone2 + px ) {
+                    bottom: -5px;
+                }
+            }
+            
+            &:hover {
+                &:before {                
+                    transform: translateY(-50%) scale3d(1, 1, 1);
+                }
+            }
+        }
+        
+        &.current-menu-item {
+            a {
+                color: $c-blue;
+
+                &:before {
+                    transform: scale3d(1, 1, 1);
+                }
+            }
+        }
+    }
+    
+    &--blue {
+        a {
+            &:after, &:before {
+                background-color: $c-blue;
+            }
+        }
+    }
+    
+    &--white {
+        a {
+            &:after, &:before {
+                background-color: white;
+            }
+        }
+    }
+}
+
+
+.u-link {
+    
+}

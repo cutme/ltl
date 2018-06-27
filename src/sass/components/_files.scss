@@ -1,0 +1,76 @@
+.c-files {
+
+    &__file {
+        &:first-of-type {
+            margin-right: 20px;
+        }
+    }
+    
+    &__filetypes {
+        @extend %flex;
+        
+        @media screen and ( min-width: $tablet_portrait + 1px ) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+        }
+        
+        @media screen and ( min-width: $tablet + 1px ) {
+            left: -200px;
+        }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__right {
+        @extend %rel;
+        width: grid(1000, 1200);
+        
+        @media screen and ( min-width: $tablet + 1px ) {
+            margin-left: grid(200, 1200);
+        }
+        
+        @media screen and ( max-width: $tablet + px ) {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
+    
+    &__header {
+        margin-bottom: 40px;
+        
+        @media screen and ( min-width: $tablet_portrait + 1px ) and ( max-width: $tablet + px ) {
+            padding-left: 200px;
+        }
+    }
+    
+    &__item {
+        @extend %flex;
+        @extend %flex-wrap;
+        margin-bottom: 80px;
+    }
+    
+    .o-header__third {
+        font-weight: $medium;
+    }
+    
+    .o-header__fifth {
+        color: $c-blue;
+    }
+
+    .c-text {
+        p {
+            letter-spacing: 1px;
+            font: {
+                family: $poppins;
+                weight: $light;
+                size: rem(18);
+            }
+        }
+    }
+}

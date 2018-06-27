@@ -1,0 +1,24 @@
+.c-logo {
+    @include z-index(logo);
+    width: 91px; height: 50px;
+
+    @media screen and ( max-width: $laptop + px ) {
+        width: get-vw-laptop(91);
+    }
+    
+    @media screen and ( max-width: $tablet + px ) {
+        width: 64px;
+    }
+    
+    svg {
+        width: 100%;
+        
+        path {
+            .is-filled & {
+                fill: $c-blue;
+            }
+        }
+    }
+    
+    
+}

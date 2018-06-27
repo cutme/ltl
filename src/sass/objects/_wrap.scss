@@ -1,0 +1,62 @@
+.o-wrap {
+    @extend %rel;
+    max-width: $base + px; // 1920px;
+    height: 100%;
+    margin: 0 auto;
+    padding: {
+        left: 360px;
+        right: 360px;
+    }
+    
+    &--wide {
+       padding: {
+            left: 160px;
+            right: 160px;
+        } 
+    }
+    
+    @media screen and ( max-width: $base + px ) {
+        padding: {
+            left: grid(360);
+            right: grid(360);
+        }
+        
+        &--wide {
+           padding: {
+                left: grid(160);
+                right: grid(160);
+            } 
+        }
+    }
+    
+    @media screen and ( max-width: $laptop + px ) {
+        padding: {
+            left: grid(171, $laptop);
+            right: grid(171, $laptop);
+        }        
+    }
+    
+    @media screen and ( max-width: $tablet + px ) {
+        padding: {
+            left: grid(128, $tablet);
+            right: grid(128, $tablet);
+        }
+    }
+    
+    @media screen and ( max-width: $smartphone + px ) {
+        padding: {
+            left: 30px;
+            right: 30px;
+        }
+    }
+    
+   /*
+ @media screen and ( max-width: $smartphone + px ) {
+        padding: {
+            left: 30px;
+            right: 30px;
+        }
+    }
+*/
+    
+}

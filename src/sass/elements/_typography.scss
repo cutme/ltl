@@ -1,0 +1,33 @@
+body {
+	@include antialias;
+	line-height: 1.5;
+	text-rendering: optimizeSpeed;
+	font: {
+		family: $text;
+		size: #{$base-font-size}px;
+		weight: $regular;
+	}
+	color: $c-black;
+}
+
+a {
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	
+	&:hover,
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}
+
+strong {
+//    font-weight: $semibold;
+}
+
+
+::selection {
+	background-color: $c-blue;
+	color: white;
+}

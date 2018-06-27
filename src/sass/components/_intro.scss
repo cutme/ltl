@@ -1,0 +1,32 @@
+.c-intro {
+    margin-bottom: 200px;
+    letter-spacing: 1px;
+    
+    @media screen and ( max-width: $laptop + px ) {
+        margin-bottom: get-vw-laptop(200);
+    }
+
+    .o-header__secondary {
+        font-weight: $light;
+        
+        @media screen and ( max-width: $tablet + px ) {
+            font-size: get-vw-tablet(36);
+        }
+        
+        @media screen and ( max-width: $smartphone + px ) {
+            font-size: rem(20);
+        }
+    }
+    
+    .o-header__fourth {
+        color: $c-blue;
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            font-size: get-vw-tablet-portrait(24);
+        }
+        
+        @media screen and ( max-width: $smartphone + px ) {
+            font-size: rem(15);
+        }
+    }
+}

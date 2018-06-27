@@ -1,0 +1,54 @@
+// Fonts
+
+$nunito:    'Nunito', sans-serif;
+$poppins:   'Poppins', sans-serif;
+$icons:		'icomoon';
+
+
+// Default
+
+$text:		$poppins;
+
+
+
+// Font weights
+
+$light:               300;
+$regular:             400;
+$medium:              500;
+$semibold:            600;
+$bold:                700;
+
+
+$z-index: (
+	container:     101,
+	content:       2,
+	grid:          1,
+	hamburger:     10,
+	logo:          10,
+	top:           130,
+	topbar:        200,
+	nav:           5
+);
+
+
+
+// Default
+
+$base-font-size:	24;
+$base:				1920;
+
+
+// RWD
+
+$bk:                    2560;
+$footer:                1300;
+
+$laptop:                1366;
+
+$menu:	      			1460;
+$tablet:				1024;
+$tablet_portrait:		768;
+$smartphone2:			640;
+$smartphone:			320;
+//$smartphone_portrait:	480;
