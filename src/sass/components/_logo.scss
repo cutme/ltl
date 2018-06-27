@@ -14,6 +14,8 @@
         width: 100%;
         
         path {
+            @extend %anim;
+
             .is-filled & {
                 fill: $c-blue;
             }
