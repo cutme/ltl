@@ -12,15 +12,10 @@
     
     svg {
         width: 100%;
+        height: auto;
         
         path {
             @extend %anim;
-
-            .is-filled & {
-                fill: $c-blue;
-            }
         }
     }
-    
-    
 }

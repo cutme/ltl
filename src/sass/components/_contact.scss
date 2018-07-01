@@ -1,0 +1,28 @@
+.c-contact {
+    @include z-index(contact);
+    @extend %gradient;
+    @extend %anim;
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    padding: {
+        top: 100px;
+        bottom: 100px;
+    }
+    visibility: hidden;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    
+    &.is-visible {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .o-hamburger {
+        &:after, &:before {
+            background-color: white;
+        }
+    }
+}
+

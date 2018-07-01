@@ -6,9 +6,54 @@ let removebg, hidenav;
 Pace.start();
 
 
+
+// Open Contact form
+
 (function() {
 
-    let scroll_pos = window.pageYOffset || window.scrollY;
+    const el = document.getElementsByClassName('js-open-contactform');
+    
+    if (el.length>0) {
+    
+        const contactform = document.getElementsByClassName('js-contactform')[0],
+              closeform = document.getElementsByClassName('js-close-contactform')[0];
+    
+        const hidecontact = function(e) {
+            
+            contactform.classList.remove('is-visible');
+            document.body.classList.remove('no-overflow');
+        
+            e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
+            
+        }
+    
+        const showcontact = function(e) {
+        
+            contactform.classList.add('is-visible');
+            document.body.classList.add('no-overflow');
+        
+            e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
+        }
+        
+        
+        for (let i = 0; i<el.length; i++) {
+            
+            el[i].addEventListener('click', showcontact);
+        }
+        
+        closeform.addEventListener('click', hidecontact);
+        
+    }
+
+}).call(this);
+
+
+
+// Topbar
+
+(function() {
+
+    let scroll_pos = window.pageYOffset || window.scrollY,
         status = false;
     
     const el = document.getElementsByClassName('js-topbar')[0];
@@ -17,18 +62,21 @@ Pace.start();
         scroll_pos = window.pageYOffset || window.scrollY;
         
         if (scroll_pos > 200) {
-            //if (status === false) {
-                console.log('f');
-                el.classList.add('is-filled');
+            if (status === false) {
+
+                el.classList.add('is-visible');
+                document.body.classList.add('topbar-fixed');
                 status = true;
-           // }
+            }
+
         } else {
-            el.classList.remove('is-filled');
-           // status = true;
+            if (status === true) {
+            
+                el.classList.remove('is-visible');
+                document.body.classList.remove('topbar-fixed');
+                status = false;
+            }
         }
-        
-        
-        console.log(scroll_pos);    
     }
     
     window.addEventListener('scroll', action);
@@ -41,10 +89,10 @@ Pace.start();
 
 (function() {
     
-    const el = document.getElementsByClassName('js-hamburger')[0];
+    const el = document.getElementsByClassName('js-hamburger');
     
 
-    if (el) {
+    if (el.length>0) {
     
         const nav = document.getElementsByClassName('js-nav')[0];  
         
@@ -61,9 +109,13 @@ Pace.start();
             hidenav = setTimeout(function() {
                 nav.classList.remove('is-visible');
             }, 2000);
-            //alert('hide');
-            el.classList.remove('is-active');
+
+            for (let i = 0; i < el.length; i ++) {
+                el[i].classList.remove('is-active');
+            }
             
+            document.body.classList.remove('no-overflow');    
+            document.body.classList.remove('menu-opened');    
         }
     
         const showMenu = function(e) {  
@@ -90,6 +142,9 @@ Pace.start();
                 nav.classList.add('is-content');
                 nav.classList.add('is-bg');
                 
+                document.body.classList.add('no-overflow');
+                document.body.classList.add('menu-opened');
+                
                 e.currentTarget.classList.add('is-active');
             }
 
@@ -97,7 +152,9 @@ Pace.start();
             e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
         }
 
-        el.addEventListener('click', showMenu);
+        for (let i = 0; i < el.length; i ++) {
+            el[i].addEventListener('click', showMenu);
+        }
      
      
         // Hide menu on ESC
@@ -225,76 +282,36 @@ const scrollTo = function (target, speed, offset) {
 
 
 
-// Show on scroll
+// Lang
 
-const showonscroll = function() {
+(function() {
+    const el = document.getElementsByClassName('js-lang')[0];
     
-    /*
-const el = document.getElementsByClassName('anim'),
-          count = document.getElementsByClassName('js-count');
-    
-    const isInView = function(el) {
-		let bottomOfWindow = (window.pageYOffset || window.scrollY) + window.innerHeight;
-		
-		if ( el.getBoundingClientRect().top + (window.pageYOffset || window.scrollY) < bottomOfWindow) {
-			return true;
-		}
-	};
-
-	for (let i = 0; i < el.length; i++) {
-	    
-		if (isInView(el[i])) {
-			el[i].className += ' anim--loaded';
-		}
-	}
-
-	const countit = function(o, n) {
-    	var demo = new CountUp(o, 0, n, 0, 5, { useEasing: true });
-		    
-		if (!demo.error) {
-            demo.start();
-        } else {
-            console.error(demo.error);
+    if (el) {
+        const choice = el.getElementsByClassName('js-lang__choice')[0],
+              current = el.getElementsByClassName('js-lang__current')[0];
+        
+        const hideLangs = function(e) {
+            if(!e.target.parentNode.classList.contains('js-lang')) {
+                el.classList.remove('is-visible');
+                document.removeEventListener('click', hideLangs);
+            }
         }
-	}
+        
+        const action = function(e) {
+          el.classList.toggle('is-visible');
+          document.addEventListener('click', hideLangs);
 
-	for (let j = 0; j < count.length; j++) {
-	    
-		if (isInView(count[j])) {
-		    countit(count[j], count[j].getAttribute('data-count'));
-		}
-	}
+          e.preventDefault() ? e.preventDefault() : e.preventDefault = false;  
+        };
+        
+        current.addEventListener('click', action); 
+        
+    }
 
-	function init() {
-
-        // Show in viewport
-        for (let i = 0; i < el.length; i++) {
-            let bottomOfObject = el[i].getBoundingClientRect().top + 50,
-                bottomOfWindow = window.innerHeight;
-
-            if ( bottomOfWindow > bottomOfObject + 50) {
-                el[i].classList.add('anim--loaded');
-			}
-		}
+}).call(this);
 
 
-        for (let k = 0; k < count.length; k++) {
-            let bottomOfObjectC = count[k].getBoundingClientRect().top + 50,
-                bottomOfWindowC = window.innerHeight;
-
-            if ( bottomOfWindowC > bottomOfObjectC + 50) {
-                if ( !count[k].classList.contains('anim--loaded') ) {
-                    countit(count[k], count[k].getAttribute('data-count'));
-                    count[k].classList.add('anim--loaded');
-                }
-			}
-		}
-	}
-
-	window.addEventListener('scroll', init);
-*/
-	
-};
 
 
 
@@ -302,17 +319,17 @@ Pace.on('done', function() {
 
     let element = document.getElementById("cover");
 
-    element.addEventListener("transitionend", function(event) {
-        
-        document.getElementById('cover').remove();            
-        
-        document.body.removeAttribute('style');
-        
-        showonscroll();
-    
-    }, false);
+    if (element) {
 
-    document.getElementsByClassName('pace')[0].remove();
+        element.addEventListener("transitionend", function(event) {
+            
+            document.getElementById('cover').remove();            
+            document.body.removeAttribute('style');
+        
+        }, false);
+    
+        document.getElementsByClassName('pace')[0].remove();
+    }
     
              
 });

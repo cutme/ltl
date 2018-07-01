@@ -3,44 +3,87 @@
     @extend %flex;
     @extend %flex-y;
     @extend %flex-space-between;
-    position: fixed;
     left: 0; top: 0;
     width: 100%;
-    height: 140px;
-    padding: 0 50px;
-
-    &:after {
-        @extend %abs;
-        @extend %abs-after;
-        @extend %anim;
-        left: 0; top: 0;
-        z-index: -1;
-        width: 100%; height: 100%;
-        background-color: white;
-        transform: translate3d(0, -100%, 0);
-    }
+    position: absolute;
     
-    &.is-filled {
-        border-bottom: 1px solid rgba($c-black, .05);
-        &:after {
+    .c-logo {
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            .menu-opened & {
+                svg {
+                    path {
+                        fill: $c-blue;
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-fixed {
+        @extend %anim;
+        position: fixed;
+        background-color: white;
+        height: 100px;
+        padding: 0 50px;
+        transform: translate3d(0, calc(-100% - 20px), 0);
+        box-shadow: rgba($c-blue, .15) 0 10px 24px;
+        
+        @media screen and ( max-width: $base + px ) {
+            padding: 0 grid(50);
+        }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+           padding: 0 30px;
+        }
+
+        .o-hamburger {
+            width: 35px;
+            height: 27px;
+            border-top: 3px solid $c-blue;
+            
+            &:after, &:before {
+                height: 3px;
+                background-color: $c-blue;
+            }
+        }
+        
+        .c-logo {
+            width: 64px; height: 35px;
+
+            svg {
+                path {
+                    fill: $c-blue;
+                }
+            }
+        }
+        
+        &.is-visible {
             transform: translate3d(0, 0, 0);
+        }
+    }    
+    
+    &.is-normal {
+        height: 140px;
+        padding: 0 50px;
+        transform: translate3d(0, 0, 0);
+
+        @media screen and ( max-width: $base + px ) {
+            padding: 0 grid(50);
+        }
+
+        @media screen and ( max-width: $laptop + px ) {
+            height: get-vw-laptop(140);
+        }
+        
+        @media screen and ( max-width: $tablet + px ) {
+            height: 100px;
+        }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+           padding: 0 30px;
         }
     }
     
-    @media screen and ( max-width: $base + px ) {
-        padding: 0 grid(50);
-    }
     
-    @media screen and ( max-width: $laptop + px ) {
-        height: get-vw-laptop(140);
-    }
     
-    @media screen and ( max-width: $tablet + px ) {
-       height: 100px;
-        
-    }
-    
-    @media screen and ( max-width: $tablet_portrait + px ) {
-       padding: 0 30px;
-    }
 }

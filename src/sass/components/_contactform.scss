@@ -1,0 +1,104 @@
+.c-contactform {
+    @extend %anim;
+    
+    max-width: 774px; // 30 * 2
+    margin: 0 auto;
+    padding: {
+        left: 30px;
+        right: 30px;
+    }
+    color: white;
+    transform: scale3d(.95, .95, .95);
+    opacity: 0;
+    
+    .is-visible & {
+        transition-delay: 1s;
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+    
+    &__content {
+        @extend %flex;
+        @extend %flex-wrap;
+        @extend %flex-space-between;
+    }
+    
+    &__title {
+        margin-bottom: 50px;
+        text-align: center;
+        font: {
+            size: rem(30);
+            weight: $medium;
+        }
+    }
+    
+    
+    label {
+        display: block;
+        padding: 10px 0 6px 10px;
+        font-size: rem(14);
+    }
+    
+    .form-group {
+        width: 100%;
+        margin-bottom: 10px;
+        
+        &--half {
+            @media screen and ( min-width: $tablet_portrait + 1px ) {
+                width: calc(50% - 12px);
+            }            
+        }
+        
+        &.required {
+          label {
+              &:after {
+                  content: ' *';
+                  color: $c-black;
+              }
+          }  
+        }
+    }
+    
+    .form-group-submit {
+        width: 100%;
+        padding: {
+            top: 20px;
+            bottom: 30px;
+        }
+        text-align: center;
+    }
+    
+    .form-control {
+        height: 42px;
+        background-color: white;
+        border-radius: 6px;
+        padding: 0 20px;
+        font-size: rem(14);
+        color: $c-black;
+    }
+    
+    .form-group-contact {
+        width: 100%;
+        text-align: center;
+        font-size: rem(14);
+        
+        @media screen and ( min-width: $tablet_portrait + 1px ) {
+            display: none;
+        }   
+    }
+    
+    textarea {
+        &.form-control {
+            height: 120px;
+            padding: 20px;
+        }
+    }
+    
+    .o-btn {
+        padding: {
+            left: 70px;
+            right: 70px;
+        }
+    }
+
+}

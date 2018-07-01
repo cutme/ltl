@@ -21,14 +21,15 @@ $bold:                700;
 
 
 $z-index: (
+    contact:       210,
 	container:     101,
 	content:       2,
-	grid:          1,
+	grid:          -1,
 	hamburger:     10,
 	logo:          10,
 	top:           130,
 	topbar:        200,
-	nav:           5
+	nav:           195
 );
 
 
