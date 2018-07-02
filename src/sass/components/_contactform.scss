@@ -95,9 +95,19 @@
     }
     
     .o-btn {
-        padding: {
-            left: 70px;
-            right: 70px;
+
+        @media screen and ( min-width: $smartphone2 + 1px ) {
+            padding: {
+                left: 70px;
+                right: 70px;
+            }
+        }
+        
+        @media screen and ( max-width: $smartphone2 + px ) {
+            span {
+                display: block;
+                width: 100%;
+            }
         }
     }
 

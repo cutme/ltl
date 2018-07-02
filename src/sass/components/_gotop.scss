@@ -1,4 +1,5 @@
 .c-gotop {
+    @include z-index(gotop);
     position: fixed;
     right: 20px; bottom: 20px;
     width: 54px;
