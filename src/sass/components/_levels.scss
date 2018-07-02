@@ -26,6 +26,12 @@
     .o-list {
         &__item { 
         
+            .c-text {
+                @media screen and ( min-width: $base + 1px ) {
+                    width: 600px;
+                }
+            }
+        
             .o-cols {
                 @media screen and ( max-width: $tablet_portrait + px ) {
                     padding: {
@@ -53,7 +59,9 @@
                 
                 .o-cols__item {
                     &:last-of-type {
-                        padding-right: 360px;
+                        //padding-right: 360px;
+                        
+                        
                         
                         @media screen and ( max-width: $base + px ) {
                             padding-right: grid(360);
@@ -70,7 +78,7 @@
                         @media screen and ( max-width: $smartphone + px ) {
                             padding-right: 30px;
                         }
-                    }
+                    }                    
                 }                
             } 
             

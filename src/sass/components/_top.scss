@@ -8,16 +8,14 @@
         100% 0, 
         100% 100%, 
         grid(1560) 100%, 
-        grid(1560) calc(100% - 50px),
-        0 calc(100% - 50px),
+        grid(1560) calc(100% - 160px),
+        0 calc(100% - 160px),
         0 0);
 
 
     > .o-wrap {
         z-index: 15;
     }
-    
-    
 
     .is-home & {
         @media screen and ( min-width: $base + 1px ) {
@@ -47,7 +45,6 @@
     @media screen and ( max-width: $base + px ) {
         height: get-vw-base(890); 
     }
-
 
     @media screen and ( max-width: $laptop + px ) {
         height: get-vw-laptop(770);

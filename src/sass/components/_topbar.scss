@@ -48,9 +48,10 @@
         }
         
         .c-logo {
-            width: 64px; height: 35px;
+            //width: 64px; height: 35px; 
 
             svg {
+                margin: 0;
                 path {
                     fill: $c-blue;
                 }

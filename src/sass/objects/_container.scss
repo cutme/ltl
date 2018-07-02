@@ -1,6 +1,7 @@
 .o-container {
     @extend %anim;
     @extend %rel;
+    overflow: hidden;
    // opacity: 0;
 	
 	

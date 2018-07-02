@@ -1,9 +1,105 @@
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
+
 let removebg, hidenav;
 
 
 // Pace preloader
 
 Pace.start();
+
+
+
+// goToTarget
+
+(function() {
+
+    'use strict';
+
+	const speed_calculate = function (target) {
+    	let base_speed  = 50,
+    		page_offset = window.pageYOffset || document.documentElement.scrollTop,
+        	offset_diff = Math.abs(target - page_offset),
+        	speed = ((offset_diff * base_speed) / 1000)/100;
+
+    	return speed;
+	};
+
+	const clickAction = function(e) {
+	
+	    const that = e.currentTarget;
+
+	    let src = that.getAttribute('href'),
+	        window_pos = window.pageYOffset || window.scrollY || document.documentElement.scrollTop, offset = 0, target = 0;
+
+        if (src != null) {
+        
+    	    const obj = document.getElementById( src.slice(1, src.length) );
+    	    
+    	    offset = that.getAttribute('data-offset');
+	    
+	        target = window_pos + obj.getBoundingClientRect().top - offset;	        
+        	 
+	    }
+	    
+	    TweenLite.to(window, speed_calculate(target), {
+    		scrollTo: {
+    			y: target + offset,
+    			autoKill: false
+    		},
+    		ease: Power1.easeOut
+    	});
+        
+        if (window.e) {
+            window.e.returnValue = false;
+        }
+        
+	    e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
+	};
+
+	const btn = document.getElementsByClassName('js-goto');
+
+
+    if (btn.length>0) {
+    	for (let i = 0; i < btn.length; i++) {
+            btn[i].addEventListener('click', clickAction);
+        }
+    }
+
+}).call(this);
+
+
+
+// goTop icon
+
+(function() {
+    let scroll_pos = window.pageYOffset || window.scrollY,
+        status = false;
+    
+    const el = document.getElementsByClassName('js-gotop')[0];
+    
+    if (el) {
+
+        const action = function() {
+    
+            scroll_pos = window.pageYOffset || window.scrollY;
+            
+            if (scroll_pos > 200) {
+                if (status === false) {
+                    el.classList.add('is-visible');
+                    status = true;
+                }
+            } else {
+                if (status === true) {
+                    el.classList.remove('is-visible');
+                    status = false;
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', action);
+    }
+    
+}).call(this);
 
 
 
@@ -28,7 +124,8 @@ Pace.start();
         }
     
         const showcontact = function(e) {
-        
+
+            hideMenu();
             contactform.classList.add('is-visible');
             document.body.classList.add('no-overflow');
         
@@ -85,38 +182,45 @@ Pace.start();
 
 
 
-// Menu
+/*
+ * Menu
+ */
+
+// Hide Menu
+
+const hideMenu = function() {
+
+    const hamburger = document.getElementsByClassName('js-hamburger');
+    const nav = document.getElementsByClassName('js-nav')[0]; 
+            
+    nav.classList.remove('is-content');
+    nav.classList.add('reset-delay');
+    
+    removebg = setTimeout(function() {
+        nav.classList.remove('is-bg');
+    }, 600);
+    
+    hidenav = setTimeout(function() {
+        nav.classList.remove('is-visible');
+    }, 2000);
+
+    for (let i = 0; i < hamburger.length; i ++) {
+        hamburger[i].classList.remove('is-active');
+    }
+    
+    document.body.classList.remove('no-overflow');    
+    document.body.classList.remove('menu-opened');    
+};
+
 
 (function() {
     
-    const el = document.getElementsByClassName('js-hamburger');
+    const hamburger = document.getElementsByClassName('js-hamburger');
     
 
-    if (el.length>0) {
+    if (hamburger.length>0) {
     
         const nav = document.getElementsByClassName('js-nav')[0];  
-        
-        
-        const hideMenu = function() {
-            
-            nav.classList.remove('is-content');
-            nav.classList.add('reset-delay');
-            
-            removebg = setTimeout(function() {
-                nav.classList.remove('is-bg');
-            }, 600);
-            
-            hidenav = setTimeout(function() {
-                nav.classList.remove('is-visible');
-            }, 2000);
-
-            for (let i = 0; i < el.length; i ++) {
-                el[i].classList.remove('is-active');
-            }
-            
-            document.body.classList.remove('no-overflow');    
-            document.body.classList.remove('menu-opened');    
-        }
     
         const showMenu = function(e) {  
 
@@ -152,8 +256,8 @@ Pace.start();
             e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
         }
 
-        for (let i = 0; i < el.length; i ++) {
-            el[i].addEventListener('click', showMenu);
+        for (let i = 0; i < hamburger.length; i ++) {
+            hamburger[i].addEventListener('click', showMenu);
         }
      
      
@@ -178,8 +282,6 @@ Pace.start();
 
 
 
-
-
 // Full height
 
 (function() {
@@ -201,73 +303,6 @@ Pace.start();
 }).call(this);
 
 
-const scrollTo = function (target, speed, offset) {
-
-	TweenLite.to(window, speed, {
-		scrollTo: {
-			y: target + offset,
-			autoKill: false
-		},
-		ease: Power1.easeOut
-	});
-};
-
-
-
-// GoToTarget
-
-(function() {
-
-    'use strict';
-
-	const speed_calculate = function (target) {
-    	let base_speed  = 50,
-    		page_offset = window.pageYOffset || document.documentElement.scrollTop,
-        	offset_diff = Math.abs(target - page_offset),
-        	speed = ((offset_diff * base_speed) / 1000)/100;
-
-    	return speed;
-	};
-
-	const clickAction = function(e) {
-	
-	    const that = e.currentTarget;
-
-	    let src = that.getAttribute('href'),
-	        window_pos = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
-
-	    const obj = document.getElementById( src.slice(1, src.length) );
-
-	    if (obj) {
-	        let offset = that.getAttribute('data-offset');
-
-            if (!offset) {
-                offset = 0;
-            }
-            
-            document.body.removeAttribute('style');
-	    
-	        let target = window_pos + obj.getBoundingClientRect().top - offset;
-	        scrollTo(target, speed_calculate(target), -50);
-	    }
-        
-        if (window.e) {
-            window.e.returnValue = false;
-        }
-        
-	    e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
-	};
-
-	const btn = document.getElementsByClassName('js-goto');
-
-
-    if (btn.length>0) {
-    	for (let i = 0; i < btn.length; i++) {
-            btn[i].addEventListener('click', clickAction);
-        }
-    }
-
-}).call(this);
 
 
 // isMobile

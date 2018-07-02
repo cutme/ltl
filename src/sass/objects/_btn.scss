@@ -5,7 +5,7 @@
     @extend %rel;
     display: inline-flex;
     height: 54px;
-    border-radius: 3px;
+   // border-radius: 3px;
     font-size: rem(17);
     
     
@@ -22,7 +22,7 @@
         
         &:hover {
             transition: all .25s ease;
-            transform: translate3d(0, -4px, 0);
+            transform: translate3d(0, -4px, 0) !important;
         }
         
         &:active {
