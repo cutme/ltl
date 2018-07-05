@@ -27,8 +27,8 @@
 
 
     @media screen and ( max-width: $tablet_portrait + px ) {
-        bottom: 350px;
-//        transform: translateY(50%);
+//        bottom: 350px;
+        bottom: 100px;
     }
     
     @media screen and ( max-width: $smartphone + px ) {

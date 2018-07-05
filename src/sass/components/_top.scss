@@ -7,8 +7,8 @@
     clip-path: polygon(
         100% 0, 
         100% 100%, 
-        grid(1560) 100%, 
-        grid(1560) calc(100% - 160px),
+        calc(100% - ((100% - 1600px)/2) - 200px) 100%, 
+        calc(100% - ((100% - 1600px)/2) - 200px) calc(100% - 160px),
         0 calc(100% - 160px),
         0 0);
 
@@ -72,6 +72,8 @@
     
     @media screen and ( max-width: $tablet_portrait + px ) {
         height: 768px;
+        height: 100vh;
+        margin-bottom: 15px;
         clip-path: none;        
     }
 

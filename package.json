@@ -27,6 +27,7 @@
         "purifycss-webpack": "^0.7.0",
         "rimraf": "^2.6.2",
         "sass-loader": "^7.0.1",
+        "scrollreveal": "^3.4.0",
         "style-loader": "^0.20.1",
         "url-loader": "^0.6.2",
         "webfontloader": "^1.6.28",

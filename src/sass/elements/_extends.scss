@@ -21,7 +21,10 @@
 
     .o-header__third {
         margin-bottom: .7em;
-        font-weight: $semibold;
+        font: {
+            family: $poppins;
+            weight: $semibold;
+        }
         color: $c-blue;
     }
     
@@ -37,6 +40,10 @@
                 
                 @media screen and ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
                     margin-left: grid(400, 1000);
+                }
+                
+                @media screen and ( min-width: $base + 1px ) {
+                    margin-left: 400px;
                 }
             }
         }

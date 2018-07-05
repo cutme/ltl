@@ -20,6 +20,10 @@
         
         @media screen and ( max-width: $tablet_portrait + px ) {
             font-size: rem(48);
+            
+            .is-home & {
+                font-size: rem(48);
+            }
         }
     }
 

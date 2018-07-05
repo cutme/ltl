@@ -1,5 +1,5 @@
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-
+import ScrollReveal from 'scrollreveal';
 let removebg, hidenav;
 
 
@@ -349,7 +349,6 @@ const hideMenu = function() {
 
 
 
-
 Pace.on('done', function() {   
 
     let element = document.getElementById("cover");
@@ -364,8 +363,14 @@ Pace.on('done', function() {
         }, false);
     
         document.getElementsByClassName('pace')[0].remove();
-    }
-    
-             
+        
+        window.sr = new ScrollReveal(config)
+        
+        var config = {
+            scale: 1
+        }
+        
+        sr.reveal(".anim", config)
+    }      
 });
 

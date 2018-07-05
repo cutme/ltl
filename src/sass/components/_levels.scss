@@ -21,6 +21,16 @@
         @media screen and ( max-width: $tablet + px ) {
             margin-bottom: get-vw-tablet(200);
         }
+
+       /*
+ &__title {
+            display: block;
+            width: 100%;
+            background: red;
+            margin-left: 0;
+            //padding: 0;
+        }
+*/
     }
 
     .o-list {

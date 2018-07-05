@@ -18,6 +18,12 @@
         }
     }
     
+    br {
+        @media screen and ( max-width: $smartphone2 + px ) {
+            display: none;
+        }
+    }
+    
     h6, li {
         letter-spacing: 1px;
         line-height: 1.8em;
@@ -89,11 +95,13 @@
         }
     }
     
-    &--indent {
-        //padding-left: 200px;
-        
+    &--indent {        
         @media screen and ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
             padding-left: grid(200, 1200);
+        }
+        
+        @media screen and ( min-width: $base + 1px ) {
+            padding-left: 200px;
         }
     }
 }
