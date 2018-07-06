@@ -112,7 +112,8 @@ Pace.start();
     if (el.length>0) {
     
         const contactform = document.getElementsByClassName('js-contactform')[0],
-              closeform = document.getElementsByClassName('js-close-contactform')[0];
+              closeform = document.getElementsByClassName('js-close-contactform')[0],
+              nav = document.getElementsByClassName('js-nav')[0];
     
         const hidecontact = function(e) {
             
@@ -127,7 +128,16 @@ Pace.start();
 
             hideMenu();
             contactform.classList.add('is-visible');
-            document.body.classList.add('no-overflow');
+            
+            const event = function(e) {
+                if (e.pseudoElement === "::before") {
+                    document.body.classList.add('no-overflow');
+                    nav.removeEventListener("transitionend", event);
+                    console.log('ffff');
+                }
+            }
+            
+            nav.addEventListener("transitionend", event, false);
         
             e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
         }
@@ -192,23 +202,32 @@ const hideMenu = function() {
 
     const hamburger = document.getElementsByClassName('js-hamburger');
     const nav = document.getElementsByClassName('js-nav')[0]; 
-            
+     
     nav.classList.remove('is-content');
     nav.classList.add('reset-delay');
-    
+
     removebg = setTimeout(function() {
         nav.classList.remove('is-bg');
     }, 600);
-    
+
     hidenav = setTimeout(function() {
         nav.classList.remove('is-visible');
+         
     }, 2000);
+    
+    const event = function(e) {
+        if (e.pseudoElement === "::before") {
+            document.body.classList.remove('no-overflow');  
+            nav.removeEventListener("transitionend", event);
+        }
+    }
+
+    nav.addEventListener("transitionend", event, false);
 
     for (let i = 0; i < hamburger.length; i ++) {
         hamburger[i].classList.remove('is-active');
     }
-    
-    document.body.classList.remove('no-overflow');    
+
     document.body.classList.remove('menu-opened');    
 };
 
