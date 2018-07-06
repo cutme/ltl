@@ -7,13 +7,10 @@
     width: 960px;
     height: 100%;
     overflow: hidden;
-    padding: {
-        top: 200px;
-    }
+    padding-top: 200px;
     text-align: right;
     z-index: -1;
     //visibility: hidden;
-    
 	
 	@media screen and ( max-width: $base + px ) {
 	    padding-top: get-vw-base(200);
@@ -25,6 +22,7 @@
 	
 	.topbar-fixed & {
     	top: 100px; z-index: 9999;
+    	padding-top: 100px;
     	height: calc(100% - 100px);
     	
     	@media screen and ( max-width: $base + px ) {

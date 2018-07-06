@@ -105,6 +105,17 @@ Pace.start();
 
 // Open Contact form
 
+const hideContact = function(e) {
+
+    const contactform = document.getElementsByClassName('js-contactform')[0];
+    
+    contactform.classList.remove('is-visible');
+    document.body.classList.remove('no-overflow');
+
+//    e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
+    
+};
+
 (function() {
 
     const el = document.getElementsByClassName('js-open-contactform');
@@ -115,16 +126,7 @@ Pace.start();
               closeform = document.getElementsByClassName('js-close-contactform')[0],
               nav = document.getElementsByClassName('js-nav')[0];
     
-        const hidecontact = function(e) {
-            
-            contactform.classList.remove('is-visible');
-            document.body.classList.remove('no-overflow');
-        
-            e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
-            
-        }
-    
-        const showcontact = function(e) {
+        const showContact = function(e) {
 
             hideMenu();
             contactform.classList.add('is-visible');
@@ -133,7 +135,6 @@ Pace.start();
                 if (e.pseudoElement === "::before") {
                     document.body.classList.add('no-overflow');
                     nav.removeEventListener("transitionend", event);
-                    console.log('ffff');
                 }
             }
             
@@ -145,10 +146,10 @@ Pace.start();
         
         for (let i = 0; i<el.length; i++) {
             
-            el[i].addEventListener('click', showcontact);
+            el[i].addEventListener('click', showContact);
         }
         
-        closeform.addEventListener('click', hidecontact);
+        closeform.addEventListener('click', hideContact);
         
     }
 
@@ -292,6 +293,7 @@ const hideMenu = function() {
             }
             if (isEscape) {
                 hideMenu();
+                hideContact();
             }
         });
        
