@@ -5,12 +5,12 @@
     position: fixed;
     right: 0; top: 0;
     width: 960px;
-    height: 100%;
+    height: 0;
     overflow: hidden;
     padding-top: 200px;
     text-align: right;
     z-index: -1;
-    //visibility: hidden;
+
 	
 	@media screen and ( max-width: $base + px ) {
 	    padding-top: get-vw-base(200);
@@ -278,8 +278,9 @@
     }
 
     &.is-visible {
-        visibility: visible;
+        //visibility: visible;
         @include z-index(nav);
+        height: 100%;
         
         .topbar-fixed & {
             z-index: 201;

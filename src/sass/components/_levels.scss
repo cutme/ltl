@@ -21,16 +21,6 @@
         @media screen and ( max-width: $tablet + px ) {
             margin-bottom: get-vw-tablet(200);
         }
-
-       /*
- &__title {
-            display: block;
-            width: 100%;
-            background: red;
-            margin-left: 0;
-            //padding: 0;
-        }
-*/
     }
 
     .o-list {
@@ -94,6 +84,7 @@
             
             &:nth-child(even) {
                 figure {
+                    padding-right: 160px;
                     
                     @media screen and ( max-width: $base + px ) {
                         padding-right: grid(160);
@@ -101,6 +92,13 @@
                 }
             
                 .o-cols__item {
+                
+                    .c-text {
+                        @media screen and ( min-width: $base + 1px ) {
+                            margin: 0 0 0 auto;
+                        }
+                    }
+                
                     &:last-of-type {
                         padding-left: 360px;
                         
