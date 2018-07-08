@@ -1,19 +1,31 @@
 .c-toplead {
     @extend %abs;
-    bottom: 230px;
+    bottom: 260px;
     left: 160px;
     
     .is-home & {
-
-        @media screen and ( min-width: $base + 1px ) {
-            bottom: 430px;
+        bottom: 550px;
+        
+        @media screen and ( min-width: $base + 1px ) and ( max-width: $bk + px ) {
+            bottom: get-vw-bk(550);
         }
 
         @media screen and ( min-width: $laptop + 1px )  and ( max-width: $base + px ) {
             bottom: get-vw-base(430);
         }
+        
+        @media screen and ( max-width: $laptop + px ) {
+            bottom: get-vw-laptop(230);
+        }
     }
 
+    @media screen and ( max-width: $bk + px ) {
+        bottom: 230px;
+    }
+    
+    @media screen and ( max-width: $base + px ) {
+        left: get-vw-base(160);
+    }
 
     @media screen and ( max-width: $laptop + px ) {
         bottom: get-vw-laptop(230);
@@ -27,7 +39,6 @@
 
 
     @media screen and ( max-width: $tablet_portrait + px ) {
-//        bottom: 350px;
         bottom: 100px;
     }
     

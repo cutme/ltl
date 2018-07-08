@@ -8,8 +8,8 @@
         100% 0, 
         100% 100%, 
         calc(100% - ((100% - 1600px)/2) - 200px) 100%, 
-        calc(100% - ((100% - 1600px)/2) - 200px) calc(100% - 160px),
-        0 calc(100% - 160px),
+        calc(100% - ((100% - 1600px)/2) - 200px) calc(100% - 50px),
+        0 calc(100% - 50px),
         0 0);
 
 
@@ -18,12 +18,26 @@
     }
 
     .is-home & {
-        @media screen and ( min-width: $base + 1px ) {
-            height: 1080px;
+        height: 1249px;
+        
+        clip-path: polygon(
+            100% 0, 
+            100% 100%, 
+            calc(100% - ((100% - 1600px)/2) - 200px) 100%, 
+            calc(100% - ((100% - 1600px)/2) - 200px) calc(100% - 160px),
+            0 calc(100% - 160px),
+            0 0);
+
+        @media screen and ( min-width: $base + 1px ) and ( max-width: $bk + px ) {
+            height: get-vw-bk(1249);
         }
         
         @media screen and ( min-width: $laptop + 1px ) and ( max-width: $base + px ) {
             height: get-vw-base(1080);
+        }
+        
+        @media screen and ( max-width: $laptop + px ) {
+            height: get-vw-laptop(768);
         }
         
         @media screen and ( min-width: $laptop + 1px ) and ( max-width: $base + px ) {
@@ -35,19 +49,47 @@
                 grid(1560) calc(100% - 160px),
                 0 calc(100% - 160px),
                 0 0); 
-        }    
+        }
+        
+        @media screen and ( max-width: $tablet + px ) {
+            height: get-vw-tablet(650);
+            
+            clip-path: polygon(
+                100% 0, 
+                100% 100%, 
+                grid(1195, $laptop) 100%, 
+                grid(1195, $laptop) calc(100% - 50px),
+                0 calc(100% - 50px),
+                0 0);
+        }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            height: 100vh;
+        }
     }
+    
+    
 
     @media screen and ( min-width: $base + 1px ) {
-        height: 890px;        
+        height: 890px;     
+    }
+    
+    @media screen and ( min-width: $laptop + 1px ) and ( max-width: $base + px ) {
+            
+        clip-path: polygon(
+            100% 0, 
+            100% 100%, 
+            grid(1560) 100%, 
+            grid(1560) calc(100% - 50px),
+            0 calc(100% - 50px),
+            0 0); 
     }
 
     @media screen and ( max-width: $base + px ) {
         height: get-vw-base(890); 
     }
-
     @media screen and ( max-width: $laptop + px ) {
-        height: get-vw-laptop(770);
+        height: get-vw-laptop(768);
         
         clip-path: polygon(
             100% 0, 
@@ -64,10 +106,20 @@
         clip-path: polygon(
             100% 0, 
             100% 100%, 
+            grid(768, $tablet) 100%, 
+            grid(768, $tablet) calc(100% - 50px),
+            0 calc(100% - 50px),
+            0 0); 
+            
+        /*
+clip-path: polygon(
+            100% 0, 
+            100% 100%, 
             grid(1195, $laptop) 100%, 
             grid(1195, $laptop) calc(100% - 50px),
             0 calc(100% - 50px),
-            0 0);         
+            0 0);
+*/         
     }
     
     @media screen and ( max-width: $tablet_portrait + px ) {
@@ -109,33 +161,107 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3093d1', end
             
 
         }
-        
+
         &--about {
-            background-image: url(../img/about/top.png);
+            background: {
+                image: url(../img/about/top.png);
+                size: auto;
+                position: 71% center;
+            }
+
+            @media screen and ( max-width: $base + px ) {
+                background-size: get-vw-base(913) get-vw-base(638);
+            }
+
+            @media screen and ( max-width: $laptop + px ) {
+                background: {
+                    position: 85% center;
+                    size: get-vw-laptop(731) get-vw-laptop(510);
+                }
+            }
+
+            @media screen and ( max-width: $tablet + px ) {
+                background-size: get-vw-tablet(639) get-vw-tablet(446);
+            }
         }
-        
+
         &--certificates {
-            background-image: url(../img/certificates/top.png);
+            background: {
+                image: url(../img/certificates/top.png);
+                size: 1805px 1092px;
+                position: 68% -330px;
+            }
+            
+            @media screen and ( max-width: $bk + px ) {
+                background: {
+                    size: get-vw-bk(1805) get-vw-bk(1092);
+                    position: 68% get-vw-bk(-330);
+                }
+            }
+
+            @media screen and ( max-width: $base + px ) {
+                background: {
+                    size: get-vw-base(1600) get-vw-base(968);
+                    position: 68% -210px;
+                }
+            }
+            
+            @media screen and ( max-width: $laptop + px ) {
+                background: {
+                    position: 68% -50px;
+                }
+            }
+            
+            @media screen and ( max-width: $tablet + px ) {
+                background: {
+                    position: 68% 0;
+                }
+            }
+            
         }
 
         &--home {
-            background-image: url(../img/home/top.png);
+            background: {
+                image: url(../img/home/top.png);
+            }
+            
+            @media screen and ( min-width: $tablet_portrait + 1px ) and ( max-width: $tablet + px ) {
+                background-position: 500% center;
+            }
         }
-        
+
         &--offer {
-            background-image: url(../img/offer/top.png);
+            background: {
+                image: url(../img/offer/top.png);
+                size: 993px 795px;
+                position: 78% top;
+            }
+
+            @media screen and ( max-width: $base + px ) {
+                background: {
+                    size: get-vw-base(993) get-vw-base(795);
+                    position: 84% top;
+                }
+            }
+
+            @media screen and ( max-width: $laptop + px ) {
+                background: {
+                    size: get-vw-laptop(844) get-vw-laptop(676);
+                    position: 84% top;
+                }
+            }
+
+            @media screen and ( max-width: $tablet + px ) {
+                background-size: get-vw-tablet(633) get-vw-tablet(506);
+            }
         }
-        
+
+
+
         @media screen and ( max-width: $tablet_portrait + px ) {
             background-position: center bottom;
             background: {
-                size: 768px auto;
-                //position: center 150%;
-               // size: contain;
-    
-               // position: center -50%;
-                
-//                size: 768px auto;
+                size: get-vw-tablet-portrait(768) auto;
             }
         }
         
