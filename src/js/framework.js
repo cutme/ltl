@@ -3,20 +3,6 @@ import ScrollReveal from 'scrollreveal';
 let removebg, hidenav;
 
 
-const attach = function(node, target) {
-    console.log(node);
-    var next = node.nextSibling;
-
-    target.append(node, next);
-}
-
-const detach = function(node) {
-    var parent = node.parentNode;
-    var next = node.nextSibling;
-    if (!parent) { return; }
-    
-    parent.removeChild(node);
-}
 
 // Pace preloader
 
@@ -182,7 +168,7 @@ const hideContact = function(e) {
     const el = document.getElementsByClassName('js-topbar')[0];
 
     const action = function() {
-        scroll_pos = window.pageYOffset || window.scrollY;
+          scroll_pos = window.pageYOffset || window.scrollY;
         
         if (scroll_pos > 200) {
             if (status === false) {
@@ -262,6 +248,10 @@ const hideMenu = function() {
             
         const showMenu = function(e) {  
 
+            let scroll_pos = window.pageYOffset || window.scrollY,
+                ww = window.innerWidth;
+        
+            
             // Menu is open
             if (e.currentTarget.classList.contains('is-active')) {
                 
@@ -283,7 +273,10 @@ const hideMenu = function() {
                 nav.classList.add('is-visible');
                 nav.classList.add('is-content');
                 nav.classList.add('is-bg');
-                topbar.classList.add('is-shadow');
+                
+                if (scroll_pos <= 200 && ww <= 768) {
+                    topbar.classList.add('is-shadow');
+                }
                 
                 document.body.classList.add('no-overflow');
                 document.body.classList.add('menu-opened');

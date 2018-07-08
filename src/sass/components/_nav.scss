@@ -41,7 +41,7 @@
     @media screen and ( max-width: $tablet_portrait + px ) {
         width: 100%;
     }
-    
+
     &__content {
         @extend %rel;
         z-index: 115;
@@ -204,6 +204,7 @@
     }
 
     &__menu {
+        
         a {
             padding-left: 20px;
             
@@ -216,7 +217,7 @@
     .view {
         transition-duration: 400ms;
         transition-delay: 400ms;
-        transform: translate3d(50px, 0, 0);
+        transform: translate3d(0, 20px, 0);
         opacity: 0;
         
         &--2 {
