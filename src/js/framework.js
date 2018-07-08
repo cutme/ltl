@@ -288,6 +288,8 @@ const hideMenu = function() {
                 document.body.classList.add('no-overflow');
                 document.body.classList.add('menu-opened');
                 
+                nav.scroll(0, 0);
+                
                 e.currentTarget.classList.add('is-active');
             }
 

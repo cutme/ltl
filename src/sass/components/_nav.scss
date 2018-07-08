@@ -253,14 +253,21 @@
         @extend %abs;
         @extend %abs-after;
         position: fixed;
-        left: 0; top: 0; 
+        right: 0; top: 0; 
         z-index: -1;
-        width: 100%; height: 100%;
+        width: 100%; height: 110%;
+        width: 960px;
         background-color: white;
         transition-duration: 400ms;        
         transform: translate3d(0,-100%,0);
         
-        
+        @media screen and ( max-width: $bk + px ) {
+            width: grid(960, $bk);
+        }
+    
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            width: 100%;
+        }
     }
 
     &.is-bg {
