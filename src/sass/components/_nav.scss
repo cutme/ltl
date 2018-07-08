@@ -4,6 +4,7 @@
     position: fixed;
     right: -100%; top: 0;
     width: 960px;
+    margin-right: -20px;
     padding-top: 200px;
     text-align: right;
     z-index: -1;
@@ -46,8 +47,6 @@
         @extend %rel;
         z-index: 115;
         width: 100%; 
-        //height: 100%;
-        //overflow: hidden;
         padding-bottom: 50px;
     	
     	
@@ -84,11 +83,11 @@
             }
             
             @media screen and ( max-width: $base + px ) {
-                font-size: get-vw-base(30);
+                font-size: get-vw-base(28);
             }
             
             @media screen and ( max-width: $laptop + px ) {
-                font-size: get-vw-laptop(30);
+                font-size: get-vw-laptop(28);
             }
             
             @media screen and ( max-width: $tablet + px ) {
@@ -203,16 +202,18 @@
         }
     }
 
-    &__menu {
+   /*
+ &__menu {
         
         a {
             padding-left: 20px;
             
-            @media screen and ( max-width: $tablet_portrait + px ) {
+ @media screen and ( max-width: $tablet_portrait + px ) {
                 font-size: rem(20);
             }
         }
     }
+*/
     
     .view {
         transition-duration: 400ms;
@@ -254,7 +255,7 @@
         @extend %abs;
         @extend %abs-after;
         position: fixed;
-        right: 0; top: 0; 
+        right: -20px; top: 0; 
         z-index: -1;
         width: 100%; height: 110%;
         width: 960px;
