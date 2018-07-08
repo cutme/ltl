@@ -30,18 +30,10 @@
 
         @media screen and ( min-width: $base + 1px ) and ( max-width: $bk + px ) {
             height: get-vw-bk(1249);
-        }
+        }        
         
         @media screen and ( min-width: $laptop + 1px ) and ( max-width: $base + px ) {
             height: get-vw-base(1080);
-        }
-        
-        @media screen and ( max-width: $laptop + px ) {
-            height: get-vw-laptop(768);
-        }
-        
-        @media screen and ( min-width: $laptop + 1px ) and ( max-width: $base + px ) {
-            
             clip-path: polygon(
                 100% 0, 
                 100% 100%, 
@@ -51,20 +43,32 @@
                 0 0); 
         }
         
+        @media screen and ( max-width: $laptop + px ) {
+            height: get-vw-laptop(768);
+            clip-path: polygon(
+                100% 0, 
+                100% 100%, 
+                grid(1195, $laptop) 100%, 
+                grid(1195, $laptop) calc(100% - 30px),
+                0 calc(100% - 30px),
+                0 0); 
+        }
+        
         @media screen and ( max-width: $tablet + px ) {
             height: get-vw-tablet(650);
             
             clip-path: polygon(
                 100% 0, 
                 100% 100%, 
-                grid(1195, $laptop) 100%, 
-                grid(1195, $laptop) calc(100% - 50px),
+                grid(768, $tablet) 100%, 
+                grid(768, $tablet) calc(100% - 50px),
                 0 calc(100% - 50px),
                 0 0);
         }
         
         @media screen and ( max-width: $tablet_portrait + px ) {
             height: 100vh;
+            clip-path: none;  
         }
     }
     
@@ -88,6 +92,7 @@
     @media screen and ( max-width: $base + px ) {
         height: get-vw-base(890); 
     }
+
     @media screen and ( max-width: $laptop + px ) {
         height: get-vw-laptop(768);
         
@@ -109,17 +114,7 @@
             grid(768, $tablet) 100%, 
             grid(768, $tablet) calc(100% - 50px),
             0 calc(100% - 50px),
-            0 0); 
-            
-        /*
-clip-path: polygon(
-            100% 0, 
-            100% 100%, 
-            grid(1195, $laptop) 100%, 
-            grid(1195, $laptop) calc(100% - 50px),
-            0 calc(100% - 50px),
-            0 0);
-*/         
+            0 0);         
     }
     
     @media screen and ( max-width: $tablet_portrait + px ) {

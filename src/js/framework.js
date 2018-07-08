@@ -3,6 +3,21 @@ import ScrollReveal from 'scrollreveal';
 let removebg, hidenav;
 
 
+const attach = function(node, target) {
+    console.log(node);
+    var next = node.nextSibling;
+
+    target.append(node, next);
+}
+
+const detach = function(node) {
+    var parent = node.parentNode;
+    var next = node.nextSibling;
+    if (!parent) { return; }
+    
+    parent.removeChild(node);
+}
+
 // Pace preloader
 
 Pace.start();
@@ -201,14 +216,16 @@ const hideContact = function(e) {
 
 const hideMenu = function() {
 
-    const hamburger = document.getElementsByClassName('js-hamburger');
-    const nav = document.getElementsByClassName('js-nav')[0]; 
+    const hamburger = document.getElementsByClassName('js-hamburger'),
+          nav = document.getElementsByClassName('js-nav')[0],
+          topbar = document.getElementsByClassName('js-topbarNormal')[0]; 
      
     nav.classList.remove('is-content');
     nav.classList.add('reset-delay');
 
     removebg = setTimeout(function() {
         nav.classList.remove('is-bg');
+        topbar.classList.remove('is-shadow');
     }, 600);
 
     hidenav = setTimeout(function() {
@@ -218,7 +235,8 @@ const hideMenu = function() {
     
     const event = function(e) {
         if (e.pseudoElement === "::before") {
-            document.body.classList.remove('no-overflow');  
+            document.body.classList.remove('no-overflow');
+            document.body.classList.remove('menu-opened');    
             nav.removeEventListener("transitionend", event);
         }
     }
@@ -227,9 +245,8 @@ const hideMenu = function() {
 
     for (let i = 0; i < hamburger.length; i ++) {
         hamburger[i].classList.remove('is-active');
-    }
-
-    document.body.classList.remove('menu-opened');    
+        
+    }      
 };
 
 
@@ -240,8 +257,9 @@ const hideMenu = function() {
 
     if (hamburger.length>0) {
     
-        const nav = document.getElementsByClassName('js-nav')[0];  
-    
+        const nav = document.getElementsByClassName('js-nav')[0],
+              topbar = document.getElementsByClassName('js-topbarNormal')[0];
+            
         const showMenu = function(e) {  
 
             // Menu is open
@@ -265,6 +283,7 @@ const hideMenu = function() {
                 nav.classList.add('is-visible');
                 nav.classList.add('is-content');
                 nav.classList.add('is-bg');
+                topbar.classList.add('is-shadow');
                 
                 document.body.classList.add('no-overflow');
                 document.body.classList.add('menu-opened');

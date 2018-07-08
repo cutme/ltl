@@ -8,18 +8,32 @@
     cursor: pointer;
     
     .is-normal & {    
-        @media screen and ( max-width: $laptop + px ) {
-            //width: get-vw-laptop(40);
-            //height: get-vw-laptop(30);
+        border-top-color: white;
+    }
+    
+    .is-fixed & {
+        border-top-color: $c-blue;        
+        
+        &:after, &:before {
+            background-color: $c-blue;
         }
         
+    }
+    
+    //.is-normal & {    
         @media screen and ( max-width: $tablet + px ) {
             width: 35px;
             height: 27px;
             margin-top: -10px;
-            border-top: 3px solid white;
+            border-top-width: 3px;
         }
-    }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            width: 26px; height: 20px;
+            margin-top: -5px;
+            border-top-width: 2px;
+        }
+    //}
 
     &:after, &:before {
         @extend %abs;
@@ -31,6 +45,10 @@
         @media screen and ( max-width: $tablet + px ) {
             height: 3px;
         }
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            height: 2px;
+        }
     }
     
     &:after {
@@ -41,6 +59,10 @@
     &:before {
         transform-origin: left;
         top: calc(50% - 2px);
+        
+        @media screen and ( max-width: $tablet_portrait + px ) {
+            top: calc(50% - 1px);
+        }
     }
     
     &.is-active {
@@ -52,6 +74,10 @@
 
         &:after {
             transform: rotate(45deg) translate(-6px, 2px);
+            
+            @media screen and ( max-width: $tablet_portrait + px ) {
+                transform: rotate(45deg) translate(-1px,3px);
+            }
         }
         
         &:before {
