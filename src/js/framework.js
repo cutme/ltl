@@ -211,7 +211,7 @@ const hideMenu = function() {
 
     removebg = setTimeout(function() {
         nav.classList.remove('is-bg');
-        topbar.classList.remove('is-shadow');
+//        topbar.classList.remove('is-shadow');
     }, 600);
 
     hidenav = setTimeout(function() {
@@ -275,7 +275,7 @@ const hideMenu = function() {
                 nav.classList.add('is-bg');
                 
                 if (scroll_pos <= 200 && ww <= 768) {
-                    topbar.classList.add('is-shadow');
+//                    topbar.classList.add('is-shadow');
                 }
                 
                 document.body.classList.add('no-overflow');

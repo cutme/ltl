@@ -40,7 +40,9 @@
     }
 
     @media screen and ( max-width: $tablet_portrait + px ) {
-        width: 100%;
+        width: calc(100% + 20px);
+        //background: white;
+        padding-right: 20px;
     }
 
     &__content {
@@ -122,9 +124,7 @@
             }
         }
     }
-    
-    
-    
+
     &__contact {
         margin-bottom: 40px;
         padding-right: 200px;
@@ -201,19 +201,6 @@
             }
         }
     }
-
-   /*
- &__menu {
-        
-        a {
-            padding-left: 20px;
-            
- @media screen and ( max-width: $tablet_portrait + px ) {
-                font-size: rem(20);
-            }
-        }
-    }
-*/
     
     .view {
         transition-duration: 400ms;
@@ -269,6 +256,7 @@
     
         @media screen and ( max-width: $tablet_portrait + px ) {
             width: 100%;
+            right: 0;
         }
     }
 
