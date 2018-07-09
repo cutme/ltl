@@ -252,17 +252,31 @@
         
         @media screen and ( max-width: $bk + px ) {
             width: grid(960, $bk);
+            //top: 100px;
         }
     
         @media screen and ( max-width: $tablet_portrait + px ) {
             width: 100%;
             right: 0;
+           // top: 72px;
         }
     }
 
     &.is-bg {
         &:before {
             transform: translate3d(0, 0, 0);
+            
+            .topbar-fixed & {
+                top: 100px;
+                //transform: translate3d(0, 100px, 0);
+                
+                @media screen and ( max-width: $tablet_portrait + px ) {
+                    top: 72px;
+                    //transform: translate3d(0, -72px, 0);
+                }
+            }
+            
+            
         }
     }
 
@@ -290,7 +304,9 @@
         //height: 100%;
         
         .topbar-fixed & {
-//            z-index: 201;
+            @media screen and ( min-width: $tablet_portrait + 1px ) {
+                z-index: 201;
+            }
         }
     }
     
