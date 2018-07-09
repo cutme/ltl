@@ -92,9 +92,15 @@
                 font-size: get-vw-laptop(28);
             }
             
-            @media screen and ( max-width: $tablet + px ) {
+            @media screen and ( max-width: 1280px ) {
                 font-size: rem(20);
             }
+            
+           /*
+ @media screen and ( max-width: $tablet + px ) {
+                font-size: rem(20);
+            }
+*/
             
             @media screen and ( max-width: $tablet_portrait + px ) {
                 padding-right: 30px;
