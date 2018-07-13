@@ -8,7 +8,6 @@
     left: 0; top: 0;
     width: 100%;
     position: absolute;
-    
   
     .menu-opened & {
         @media screen and ( max-width: $tablet_portrait + px ) {
@@ -55,17 +54,6 @@
            padding: 0 30px;
            box-shadow: rgba($c-blue, .15) 0 2px 5px;
         }
-
-        .o-hamburger {
-           // width: 35px;
-            //height: 27px;
-          //  border-top: 3px solid $c-blue;
-            
-            &:after, &:before {
-               // height: 3px;
-               // background-color: $c-blue;
-            }
-        }
         
         .c-logo {
             svg {
@@ -96,7 +84,7 @@
         
         @media screen and ( max-width: $tablet_portrait + px ) {
             height: 72px;
-           padding: 0 30px;
+            padding: 0 30px;
         }
     }
     

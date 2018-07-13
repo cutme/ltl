@@ -17,6 +17,12 @@
         @media screen and ( max-width: $laptop + px ) {
             bottom: get-vw-laptop(230);
         }
+        
+        @media screen and ( max-width: $smartphone2 + px ) {
+            bottom: 160px;
+            //bottom: get-vw-tablet-portrait(130);
+        }
+
     }
 
     @media screen and ( max-width: $bk + px ) {

@@ -209,22 +209,22 @@ const hideMenu = function() {
     nav.classList.remove('is-content');
     nav.classList.add('reset-delay');
 
-    removebg = setTimeout(function() {
+    //removebg = setTimeout(function() {
         nav.classList.remove('is-bg');
 //        topbar.classList.remove('is-shadow');
-    }, 600);
+    //}, 600);
 
     hidenav = setTimeout(function() {
         nav.classList.remove('is-visible');
          
-    }, 2000);
+    }, 600);
     
     const event = function(e) {
-        if (e.pseudoElement === "::before") {
+       // if (e.pseudoElement === "::before") {
             document.body.classList.remove('no-overflow');
             document.body.classList.remove('menu-opened');    
             nav.removeEventListener("transitionend", event);
-        }
+       // }
     }
 
     nav.addEventListener("transitionend", event, false);
@@ -245,13 +245,18 @@ const hideMenu = function() {
     
         const nav = document.getElementsByClassName('js-nav')[0],
               topbar = document.getElementsByClassName('js-topbarNormal')[0];
-            
+
+        if (nav) {
+            const navContent = nav.getElementsByClassName('js-navContent')[0];
+        }
+
         const showMenu = function(e) {  
 
             let scroll_pos = window.pageYOffset || window.scrollY,
                 ww = window.innerWidth;
         
-            
+                
+
             // Menu is open
             if (e.currentTarget.classList.contains('is-active')) {
                 
@@ -263,7 +268,7 @@ const hideMenu = function() {
                     clearTimeout(removebg);
                     nav.classList.remove('is-bg');
                 }
-            
+
                 if (hidenav != undefined) {
                     clearTimeout(hidenav);
                     nav.classList.remove('is-visible');
@@ -274,16 +279,32 @@ const hideMenu = function() {
                 nav.classList.add('is-content');
                 nav.classList.add('is-bg');
                 
+
+                
                 if (scroll_pos <= 200 && ww <= 768) {
 //                    topbar.classList.add('is-shadow');
                 }
                 
+                
+                
                 document.body.classList.add('no-overflow');
                 document.body.classList.add('menu-opened');
+
+            	if (window.scrollY) {
+            	
+            	    let supportPageOffset = window.pageXOffset !== undefined;
+                    let isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+
+                    let y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? navContent.scrollTop : navContent.scrollTop;
+            	
+                   // navContent.scroll(0, 0);
+                }
+
+                for (let i = 0; i < hamburger.length; i ++) {
+                    hamburger[i].classList.add('is-active');
+                }
                 
-                nav.scroll(0, 0);
-                
-                e.currentTarget.classList.add('is-active');
+//                e.currentTarget.classList.add('is-active');
             }
 
             

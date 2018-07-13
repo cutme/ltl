@@ -49,6 +49,6 @@
 }
 
 @function get-vw-tablet-portrait($target) {
-	$vw-context: (($tablet-portrait) * 0.01);
+	$vw-context: (($tablet_portrait) * 0.01);
 	@return ($target / $vw-context) * 1vw;
 }
